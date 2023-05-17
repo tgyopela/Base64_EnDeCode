@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace EnDeCode
 {
@@ -42,5 +43,24 @@ namespace EnDeCode
         {
             listBox2.SelectedIndex = listBox1.SelectedIndex;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string Sor = null;
+            //int i = 0;
+            for (int i = 0; listBox1.Items.Count > i; i++)
+            {
+                Sor += listBox1.Items[i].ToString()+ " | " + listBox2.Items[i].ToString() + "\n";
+                
+            }
+            saveFileDialog1.Filter = "Txt | *.txt";
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName != "")
+            {
+                File.WriteAllText(saveFileDialog1.FileName,Sor);
+            }
+
+        }
+
     }
 }
