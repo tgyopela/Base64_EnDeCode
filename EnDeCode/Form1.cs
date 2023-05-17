@@ -20,9 +20,7 @@ namespace EnDeCode
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox2.Text = Encoding.UTF8.GetString(Convert.FromBase64String(textBox1.Text));
-            
-            
+            textBox2.Text = Encoding.UTF8.GetString(Convert.FromBase64String(textBox1.Text));     
             listBox1.Items.Add(textBox1.Text);
             listBox2.Items.Add(textBox2.Text);
             textBox1.Text = "";
@@ -60,23 +58,6 @@ namespace EnDeCode
             if (saveFileDialog1.FileName != "")
             {
                 File.WriteAllText(saveFileDialog1.FileName,Sor);
-            }
-
-        }
-
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Convert.ToInt32(e.KeyChar) == 13)
-            {
-                try
-                {
-                    button2_Click(sender, e);
-                    
-                }
-                catch
-                {
-                    button1_Click(sender, e);
-                }
             }
 
         }
